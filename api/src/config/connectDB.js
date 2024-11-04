@@ -4,8 +4,8 @@ const connectDB = async () => {
   try {
     const conn = await connect(process.env.MONGO_URI);
     console.info(`MongoDB connected 👍: ${conn.connection.host}`);
-  } catch (error) {
-    console.error(`Error while connecting to MongoDB ${error.message}`);
+  } catch (err) {
+    console.error(`Error while connecting to MongoDB ${err.message}`);
     process.exit(1); // exit process with failure (1), 0 for success
   }
 };
