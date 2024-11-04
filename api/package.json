@@ -7,7 +7,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon server.js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "ui": "cd ../ui && npm run dev",
+    "api": "nodemon server.js",
+    "fullstack": "concurrently \"npm run api\" \"npm run ui\""
   },
   "author": "Kalidass Boopathi",
   "license": "ISC",
