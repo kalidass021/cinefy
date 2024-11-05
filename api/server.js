@@ -23,6 +23,17 @@ const PORT = process.env.PORT || PORT;
 // Routes
 
 
+// middleware to handle the errors
+app.use((err, req, res, next) => {
+    const statusCode = err.statusCode || 500;
+    const message = err.message || 'Internal Server Error';
+    res.status(statusCode).json({
+        success: false,
+        statusCode,
+        message,
+    });
+});
+
 app.listen(PORT, () => {
     console.info(`Server is up and listening on port ${PORT}`);
     connectDB();
