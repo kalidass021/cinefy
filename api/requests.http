@@ -5,8 +5,8 @@ POST http://localhost:5000/api/v1/auth
 Content-Type: application/json
 
 {
-    "username": "john",
-    "email": "john@email.com",
+    "username": "system",
+    "email": "system@email.com",
     "password": "password"
 }
 
@@ -17,7 +17,7 @@ POST http://localhost:5000/api/v1/auth/signin
 Content-Type: application/json
 
 {
-    "email": "kalidass@email.com",
+    "email": "system@email.com",
     "password": "password"
 }
 
@@ -36,3 +36,14 @@ GET http://localhost:5000/api/v1/users
 ###
 // get current user profile
 GET http://localhost:5000/api/v1/users/profile
+
+###
+// update current user profile
+PUT http://localhost:5000/api/v1/users/profile
+Content-Type: application/json
+
+{
+    "username": "computer",
+    "email": "computer@email.com",
+    "password": "computer123"
+}
