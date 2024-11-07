@@ -1,8 +1,15 @@
+import { Outlet } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const App = () => {
   return (
-    <div>
-      <h1 className='text-3xl font-bold text-teal-200 underline'>Hello, World!</h1>
-    </div>
+    <>
+      <ToastContainer />
+      <main className='py-3'>
+        <Outlet />
+      </main>
+    </>
   );
 };
 
