@@ -7,6 +7,8 @@ import './index.css';
 import App from './App.jsx';
 
 // auth
+import Signup from './pages/Auth/Signup.jsx';
+import Signin from './pages/Auth/Signin.jsx';
 
 // restricted
 
@@ -22,7 +24,12 @@ const appRouter = createBrowserRouter([
         element: <Home />,
       },
       {
-
+        path: '/signup',
+        element: <Signup />,
+      },
+      {
+        path: '/signin',
+        element: <Signin />,
       }
     ],
   },
