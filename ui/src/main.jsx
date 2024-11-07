@@ -13,6 +13,7 @@ import Signin from './pages/Auth/Signin.jsx';
 // restricted
 
 import Home from './pages/Home.jsx';
+import ErrorDisplay from './components/ErrorDisplay.jsx';
 
 const appRouter = createBrowserRouter([
   {
@@ -32,6 +33,7 @@ const appRouter = createBrowserRouter([
         element: <Signin />,
       }
     ],
+    errorElement: <ErrorDisplay />
   },
 ]);
 
