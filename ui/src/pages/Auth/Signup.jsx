@@ -41,17 +41,17 @@ const Signup = () => {
       return toast.error('Passwords not match');
     }
 
-    console.log({ username, email, password });
+    // console.log({ username, email, password });
 
     try {
       const res = await signup({ username, email, password }).unwrap();
-      console.log('res', res);
+      // console.log('res', res);
       dispatch(setCredentials({ ...res }));
       navigate(redirect);
       toast.success('User signed up successfully');
     } catch (err) {
       console.error(`Error while submitting the signup form ${err}`);
-      return toast.error(err);
+      return toast.error(err?.data?.message || err?.error);
     }
   };
 
@@ -71,6 +71,7 @@ const Signup = () => {
             <input
               type='text'
               id='name'
+              autoComplete='username'
               className='mt-1 p-2 border rouded w-full'
               placeholder='Enter Name'
               value={username}
@@ -88,6 +89,7 @@ const Signup = () => {
             <input
               type='email'
               id='email'
+              autoComplete='email'
               className='mt-1 p-2 border rouded w-full'
               placeholder='Enter Email'
               value={email}
@@ -105,6 +107,7 @@ const Signup = () => {
             <input
               type='password'
               id='password'
+              autoComplete='new-password'
               className='mt-1 p-2 border rouded w-full'
               placeholder='Enter Password'
               value={password}
@@ -122,6 +125,7 @@ const Signup = () => {
             <input
               type='password'
               id='confirmpassword'
+              autoComplete='new-password'
               className='mt-1 p-2 border rouded w-full'
               placeholder='Confirm Password'
               value={confirmPassword}
