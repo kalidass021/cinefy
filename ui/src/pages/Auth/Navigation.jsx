@@ -7,7 +7,8 @@ import {
 import { MdOutlineLocalMovies } from 'react-icons/md';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { useSigninMutation } from '../../redux/api/authApiSlice';
+import { toast } from 'react-toastify';
+import { useSignoutMutation } from '../../redux/api/authApiSlice';
 import { signout } from '../../redux/slices/auth/authSlice';
 
 const Navigation = () => {
@@ -17,15 +18,27 @@ const Navigation = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [logoutApiCall] = useSigninMutation();
+  const [signoutApiCall] = useSignoutMutation();
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
   };
 
+  const signoutHandler = async () => {
+    try {
+      await signoutApiCall().unwrap();
+      dispatch(signout());
+      navigate('/signin');
+      toast.success('Signed out...');
+    } catch (err) {
+      console.error(`Error while signout ${err?.data?.message}`);
+      return toast.error(err?.data?.message);
+    }
+  };
+
   return (
     <div
-      className='fixed bottom-10 left-[30rem] transform translate-x-1/2 translate-y-1/2 z-50 
+      className='fixed bottom-20 left-[30rem] transform translate-x-1/2 translate-y-1/2 z-50 
   bg-[#0f0f0f] border w-[30%] px-[4rem] mb-[2rem] rounded'
     >
       <section className='flex justify-between items-center'>
@@ -43,7 +56,10 @@ const Navigation = () => {
             className='flex items-center transition-transform transform hover:translate-x-2 
           ml-[1rem]'
           >
-            <MdOutlineLocalMovies className='mr-2 mt-[3rem] text-gray-50' size={26} />
+            <MdOutlineLocalMovies
+              className='mr-2 mt-[3rem] text-gray-50'
+              size={26}
+            />
             <span className='hidden nav-item-name mt-[3rem]'>Shop</span>
           </Link>
         </div>
@@ -125,14 +141,20 @@ const Navigation = () => {
                   className='flex items-center mt-5 transition-transform transform
                   hover:translate-x-2 mb-[2rem] '
                 >
-                  <AiOutlineLogin className='mr-2 mt-[4px] text-gray-50' size={26} />
+                  <AiOutlineLogin
+                    className='mr-2 mt-[4px] text-gray-50'
+                    size={26}
+                  />
                   <span className='hidden nav-item-name'>Signin</span>
                 </Link>
               </li>
               <li>
-                <Link to='/signup' className='flex items-center mt-5 transition-transform transform
-                hover:translate-x-2 ml-[1rem]'>
-                  <AiOutlineUserAdd className='text-gray-50' size={26}/>
+                <Link
+                  to='/signup'
+                  className='flex items-center mt-5 transition-transform transform
+                hover:translate-x-2 ml-[1rem]'
+                >
+                  <AiOutlineUserAdd className='text-gray-50' size={26} />
                   <span className='hidden nav-item-name'>Signup</span>
                 </Link>
               </li>
