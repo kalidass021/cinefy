@@ -7,6 +7,7 @@ import dotenv from 'dotenv';
 import connectDB from './src/config/connectDB.js';
 import authRoutes from './src/routes/authRoutes.js';
 import userRoutes from './src/routes/userRoutes.js';
+import genreRoutes from './src/routes/genreRoutes.js';
 
 //configurations
 dotenv.config();
@@ -24,6 +25,7 @@ const PORT = process.env.PORT || PORT;
 // Routes
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/users', userRoutes);
+app.use('/api/v1/genre', genreRoutes);
 
 // middleware to handle the errors
 app.use((err, req, res, next) => {
