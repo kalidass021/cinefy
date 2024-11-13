@@ -62,13 +62,13 @@ export const removeGenre = async (req, res, next) => {
   }
 };
 
-export const listGenres = async (req, res, next) => {
+export const fetchGenres = async (req, res, next) => {
   try {
     const genres = await Genre.find({});
     // if no genres it will return []
     res.status(200).json(genres);
   } catch (err) {
-    console.error(`Error while list genres ${err}`);
+    console.error(`Error while fetch genres ${err}`);
     next(err);
   }
 }
