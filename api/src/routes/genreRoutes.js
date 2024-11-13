@@ -7,10 +7,10 @@ import { authenticate, authorizeAdmin } from '../middlewares/auth.js';
 
 const router = Router();
 
-router.route('/').post(authenticate, authorizeAdmin, createGenre);
-router.route('/:id').put(authenticate, authorizeAdmin, updateGenre);
-router.route('/:id').delete(authenticate, authorizeAdmin, removeGenre);
-router.route('/genres').get(listGenres);
-router.route('/:id').get(readGenre);
+router.post('/', authenticate, authorizeAdmin, createGenre);
+router.put('/:id', authenticate, authorizeAdmin, updateGenre);
+router.delete('/:id', authenticate, authorizeAdmin, removeGenre);
+router.get('/genres', listGenres);
+router.get('/:id', readGenre);
 
 export default router;
