@@ -57,7 +57,7 @@ POST http://localhost:5000/api/v1/genre
 Content-Type: application/json
 
 {
-    "name": "Drama"
+    "name": "Romance"
 }
 
 ###
@@ -73,4 +73,9 @@ Content-Type: application/json
 ###
 
 // delete genre
-DELETE http://localhost:5000/api/v1/genre/6733384fbb300f720fc3f4da
+DELETE http://localhost:5000/api/v1/genre/6733384fbb300f720fc3f4dam
+
+
+###
+// get all genres
+GET http://localhost:5000/api/v1/genre/genres
