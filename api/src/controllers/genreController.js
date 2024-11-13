@@ -72,3 +72,17 @@ export const listGenres = async (req, res, next) => {
     next(err);
   }
 }
+
+export const readGenre = async (req, res, next) => {
+  try {
+    const genre = await Genre.findOne({_id: req.params.id});
+    if (!genre) {
+      return next(customError(404, 'Genre not found'));
+    }
+
+    res.status(200).json(genre);
+  } catch (err) {
+    console.error(`Error while reading specific genre ${err}`);
+    next(err);
+  }
+}
