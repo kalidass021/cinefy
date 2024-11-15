@@ -5,16 +5,20 @@ import {
   getAllMovies,
   getSpecificMovie,
   updateMovie,
+  movieReview,
 } from '../controllers/movieController.js';
 // middlewares
 import { authenticate, authorizeAdmin } from '../middlewares/auth.js';
+import checkId from '../middlewares/checkId.js';
 
 const router = Router();
 
 // public routes
 router.get('/', getAllMovies);
 router.get('/:id', getSpecificMovie);
+
 // restricted routes
+router.post('/:id/review', authenticate, checkId, movieReview);
 
 // admin routes
 router.post('/', authenticate, authorizeAdmin, createMovie);

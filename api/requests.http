@@ -116,3 +116,14 @@ Content-Type: application/json
 {
     "name": "John Wick 2"
 }
+
+
+###
+// add review
+POST http://localhost:5000/api/v1/movies/67378065792a2d925643bd9a/review
+Content-Type: application/json
+
+{
+    "rating": 5,
+    "comment": "Best action movie"
+}
