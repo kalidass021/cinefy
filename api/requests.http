@@ -91,10 +91,19 @@ POST http://localhost:5000/api/v1/movies
 Content-Type: application/json
 
 {
-    "name": "Harry Potter",
+    "name": "John Wick",
     "image": "./image.png",
-    "year": 2002,
+    "year": 2004,
     "genre": "6734a799a06ddcfbc38db915",
     "detail": "Best movie",
     "cast": ["Daniel", "Emma", "Rupert"]
 }
+
+
+###
+// get all movies
+GET http://localhost:5000/api/v1/movies
+
+###
+// get specific movie
+GET http://localhost:5000/api/v1/movies/

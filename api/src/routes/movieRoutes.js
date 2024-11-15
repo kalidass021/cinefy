@@ -1,13 +1,14 @@
 import { Router } from 'express';
 // controllers
-import { createMovie } from '../controllers/movieController.js';
+import { createMovie, getAllMovies, getSpecificMovie } from '../controllers/movieController.js';
 // middlewares
 import { authenticate, authorizeAdmin } from '../middlewares/auth.js';
 
 const router = Router();
 
 // public routes
-// router.get('/all', getAllMovies);
+router.get('/', getAllMovies);
+router.get('/:id', getSpecificMovie);
 // restricted routes
 
 // admin routes
