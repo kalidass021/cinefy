@@ -83,3 +83,18 @@ GET http://localhost:5000/api/v1/genre/genres
 ###
 // read specific genre
 GET http://localhost:5000/api/v1/genre/6734a4541351765dced159a6
+
+###
+// movie routes
+// create movie
+POST http://localhost:5000/api/v1/movies
+Content-Type: application/json
+
+{
+    "name": "Harry Potter",
+    "image": "./image.png",
+    "year": 2002,
+    "genre": "6734a799a06ddcfbc38db915",
+    "detail": "Best movie",
+    "cast": ["Daniel", "Emma", "Rupert"]
+}
