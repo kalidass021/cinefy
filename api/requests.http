@@ -106,4 +106,13 @@ GET http://localhost:5000/api/v1/movies
 
 ###
 // get specific movie
-GET http://localhost:5000/api/v1/movies/
+GET http://localhost:5000/api/v1/movies/673752e379c52a93a90ab531
+
+###
+// update movie
+PUT http://localhost:5000/api/v1/movies/67378065792a2d925643bd9a
+Content-Type: application/json
+
+{
+    "name": "John Wick 2"
+}

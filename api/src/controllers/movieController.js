@@ -37,3 +37,23 @@ export const getSpecificMovie = async (req, res, next) => {
     next(err);
   }
 };
+
+export const updateMovie = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const movieToBeUpdated = req.body;
+    
+    const updatedMovie = await Movie.findByIdAndUpdate(id, movieToBeUpdated, {
+      new: true,
+    });
+
+    if (!updatedMovie) {
+      return next(customError(404, 'Movie not found'));
+    }
+
+    res.status(200).json(updatedMovie);
+  } catch (err) {
+    console.error(`Error while updating the movie ${err}`);
+    next(err);
+  }
+};
