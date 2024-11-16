@@ -140,3 +140,7 @@ Content-Type: application/json
 {
     "reviewId": "673848dbf12ee79fe47f15d8"
 }
+
+###
+// get new movies
+GET http://localhost:5000/api/v1/movies/new

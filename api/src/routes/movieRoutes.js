@@ -8,6 +8,7 @@ import {
   movieReview,
   deleteMovie,
   deleteReview,
+  getNewMovies
 } from '../controllers/movieController.js';
 // middlewares
 import { authenticate, authorizeAdmin } from '../middlewares/auth.js';
@@ -17,6 +18,7 @@ const router = Router();
 
 // public routes
 router.get('/', getAllMovies);
+router.get('/new', getNewMovies);
 router.get('/:id', getSpecificMovie);
 
 // restricted routes
