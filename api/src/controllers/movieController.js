@@ -173,10 +173,11 @@ export const deleteReview = async (req, res, next) => {
 
 export const getNewMovies = async (req, res, next) => {
   try {
-    const newMovies = await Movie.find().sort({createdAt: -1}).limit(10);
+    const newMovies = await Movie.find().sort({year: -1}).limit(10);
     res.status(200).json(newMovies);
   } catch (err) {
     console.error(`Error while fetching new movies ${err}`);
     next(err);
   }
 }
+
