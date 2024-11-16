@@ -91,7 +91,7 @@ POST http://localhost:5000/api/v1/movies
 Content-Type: application/json
 
 {
-    "name": "John Wick",
+    "name": "Honey I blew up the kid",
     "image": "./image.png",
     "year": 2004,
     "genre": "6734a799a06ddcfbc38db915",
@@ -120,12 +120,12 @@ Content-Type: application/json
 
 ###
 // add review
-POST http://localhost:5000/api/v1/movies/67378065792a2d925643bd9a/review
+POST http://localhost:5000/api/v1/movies/673863aa1b8e99977515c4ac/review
 Content-Type: application/json
 
 {
     "rating": 5,
-    "comment": "Best action movie"
+    "comment": "Best movie"
 }
 
 ###
@@ -144,3 +144,7 @@ Content-Type: application/json
 ###
 // get new movies
 GET http://localhost:5000/api/v1/movies/new
+
+###
+// get rop rated movies
+GET http://localhost:5000/api/v1/movies/top-rated

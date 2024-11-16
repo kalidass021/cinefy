@@ -181,3 +181,12 @@ export const getNewMovies = async (req, res, next) => {
   }
 }
 
+export const getTopRatedMovies = async (req, res, next) => {
+  try {
+    const topRatedMovies = await Movie.find().sort({rating: -1}).limit(10);
+    res.status(200).json(topRatedMovies);
+  } catch (err) {
+    console.error(`Error while fetching top rated movies ${err}`);
+    next(err);
+  }
+}

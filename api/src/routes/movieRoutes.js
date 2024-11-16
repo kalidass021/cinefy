@@ -8,7 +8,8 @@ import {
   movieReview,
   deleteMovie,
   deleteReview,
-  getNewMovies
+  getNewMovies,
+  getTopRatedMovies,
 } from '../controllers/movieController.js';
 // middlewares
 import { authenticate, authorizeAdmin } from '../middlewares/auth.js';
@@ -27,6 +28,7 @@ const objectIdPattern = '([0-9a-fA-F]{24})';
 router.get('/', getAllMovies);
 router.get(`/:id${objectIdPattern}`, getSpecificMovie);
 router.get('/new', getNewMovies);
+router.get('/top-rated', getTopRatedMovies);
 
 // restricted routes
 router.post('/:id/review', authenticate, checkId, movieReview);
