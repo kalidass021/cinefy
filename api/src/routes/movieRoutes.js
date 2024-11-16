@@ -16,18 +16,25 @@ import checkId from '../middlewares/checkId.js';
 
 const router = Router();
 
+// mongo db object id regex pattern
+const objectIdPattern = '([0-9a-fA-F]{24})';
+// this will ensure /:id routes only executed only for objectIds not for other strings
+// if we won't add this /:id route will get executed for /new
+// the other way to fix this issue was changing the order of the routes,
+// but that's not a potential fix
+
 // public routes
 router.get('/', getAllMovies);
+router.get(`/:id${objectIdPattern}`, getSpecificMovie);
 router.get('/new', getNewMovies);
-router.get('/:id', getSpecificMovie);
 
 // restricted routes
 router.post('/:id/review', authenticate, checkId, movieReview);
 
 // admin routes
 router.post('/', authenticate, authorizeAdmin, createMovie);
-router.put('/:id', authenticate, authorizeAdmin, updateMovie);
-router.delete('/:id', authenticate, authorizeAdmin, deleteMovie);
-router.delete('/:id/review', authenticate, authorizeAdmin, deleteReview);
+router.put(`/:id${objectIdPattern}`, authenticate, authorizeAdmin, updateMovie);
+router.delete(`/:id${objectIdPattern}`, authenticate, authorizeAdmin, deleteMovie);
+router.delete(`/:id${objectIdPattern}/review`, authenticate, authorizeAdmin, deleteReview);
 
 export default router;
