@@ -127,3 +127,7 @@ Content-Type: application/json
     "rating": 5,
     "comment": "Best action movie"
 }
+
+###
+// delete movie
+DELETE http://localhost:5000/api/v1/movies/6737803f792a2d925643bd94

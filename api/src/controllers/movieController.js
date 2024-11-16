@@ -95,7 +95,7 @@ export const movieReview = async (req, res, next) => {
     // avg rating
     const avgRating =
       movie.reviews.reduce((acc, curr) => acc + curr.rating, 0) / totalReviews;
-    
+
     // add calculated properties to review obj
     movie.numOfReviews = totalReviews;
     movie.rating = avgRating;
@@ -105,6 +105,22 @@ export const movieReview = async (req, res, next) => {
     res.status(201).json({ message: 'Review added' });
   } catch (err) {
     console.error(`Error while adding the review ${err}`);
+    next(err);
+  }
+};
+
+export const deleteMovie = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const deleteMovie = await Movie.findByIdAndDelete(id);
+
+    if (!deleteMovie) {
+      return next(customError(404, 'Movie not found'));
+    }
+
+    res.status(200).json({ message: 'Movie deleted successfully' });
+  } catch (err) {
+    console.error(`Error while delete a movie ${err}`);
     next(err);
   }
 };
