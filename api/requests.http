@@ -148,3 +148,7 @@ GET http://localhost:5000/api/v1/movies/new
 ###
 // get rop rated movies
 GET http://localhost:5000/api/v1/movies/top-rated
+
+###
+// get random movies
+GET http://localhost:5000/api/v1/movies/random

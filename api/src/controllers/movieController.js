@@ -127,7 +127,7 @@ export const deleteMovie = async (req, res, next) => {
 
 export const deleteReview = async (req, res, next) => {
   try {
-    const {id: movieId} = req.params;
+    const { id: movieId } = req.params;
     const { reviewId } = req.body;
 
     const movie = await Movie.findById(movieId);
@@ -173,20 +173,32 @@ export const deleteReview = async (req, res, next) => {
 
 export const getNewMovies = async (req, res, next) => {
   try {
-    const newMovies = await Movie.find().sort({year: -1}).limit(10);
+    const newMovies = await Movie.find().sort({ year: -1 }).limit(10);
     res.status(200).json(newMovies);
   } catch (err) {
     console.error(`Error while fetching new movies ${err}`);
     next(err);
   }
-}
+};
 
 export const getTopRatedMovies = async (req, res, next) => {
   try {
-    const topRatedMovies = await Movie.find().sort({rating: -1}).limit(10);
+    const topRatedMovies = await Movie.find().sort({ rating: -1 }).limit(10);
     res.status(200).json(topRatedMovies);
   } catch (err) {
     console.error(`Error while fetching top rated movies ${err}`);
     next(err);
   }
-}
+};
+
+export const getRandomMovies = async (req, res, next) => {
+  try {
+    const randomMovies = await Movie.aggregate([{ $sample: { size: 10 } }]);
+    // it fetches 10 random documents from the Movie collection
+
+    res.status(200).json(randomMovies);
+  } catch (err) {
+    console.error(`Error while fetching random movies ${err}`);
+    next(err);
+  }
+};

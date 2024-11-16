@@ -10,6 +10,7 @@ import {
   deleteReview,
   getNewMovies,
   getTopRatedMovies,
+  getRandomMovies,
 } from '../controllers/movieController.js';
 // middlewares
 import { authenticate, authorizeAdmin } from '../middlewares/auth.js';
@@ -29,6 +30,7 @@ router.get('/', getAllMovies);
 router.get(`/:id${objectIdPattern}`, getSpecificMovie);
 router.get('/new', getNewMovies);
 router.get('/top-rated', getTopRatedMovies);
+router.get('/random', getRandomMovies);
 
 // restricted routes
 router.post('/:id/review', authenticate, checkId, movieReview);
