@@ -4,7 +4,7 @@ import { signup, signin, signoutCurrentUser } from '../controllers/authControlle
 
 const router = Router();
 
-router.route('/').post(signup);
+router.post('/', signup);
 router.post('/signin', signin);
 router.post('/signout', signoutCurrentUser);
 
