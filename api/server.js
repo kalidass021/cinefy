@@ -1,14 +1,18 @@
 // packages
 import express from 'express';
+import path from 'path';
 import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
 
 // files
 import connectDB from './src/config/connectDB.js';
+
+// routes
 import authRoutes from './src/routes/authRoutes.js';
 import userRoutes from './src/routes/userRoutes.js';
 import genreRoutes from './src/routes/genreRoutes.js';
 import movieRoutes from './src/routes/movieRoutes.js';
+import uploadRoutes from './src/routes/uploadRoutes.js';
 
 //configurations
 dotenv.config();
@@ -28,6 +32,14 @@ app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/users', userRoutes);
 app.use('/api/v1/genre', genreRoutes);
 app.use('/api/v1/movies', movieRoutes);
+app.use('/api/v1/upload', uploadRoutes);
+
+const rootDir = path.resolve();
+// configure express to serve static files from the  uploads directory
+// this code is only for serving images
+// without this, the image upload functionality will still work,
+// but we won't be able to access the uploaded images via URLs
+app.use("/uploads", express.static(path.join(rootDir + "/uploads")));
 
 // middleware to handle the errors
 app.use((err, req, res, next) => {

@@ -152,3 +152,14 @@ GET http://localhost:5000/api/v1/movies/top-rated
 ###
 // get random movies
 GET http://localhost:5000/api/v1/movies/random
+
+###
+// image upload
+POST http://localhost:5000/api/v1/upload
+Content-Type: multipart/form-data
+
+{
+    "image": "select file in postman"
+}
+// test image upload using post man
+
