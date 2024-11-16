@@ -124,3 +124,49 @@ export const deleteMovie = async (req, res, next) => {
     next(err);
   }
 };
+
+export const deleteReview = async (req, res, next) => {
+  try {
+    const {id: movieId} = req.params;
+    const { reviewId } = req.body;
+
+    const movie = await Movie.findById(movieId);
+
+    if (!movie) {
+      return next(customError(404, 'Movie not found'));
+    }
+    // find the review index
+    const reviewIndex = movie.reviews.findIndex(
+      (review) => review._id.toString() === reviewId
+    );
+
+    if (reviewIndex === -1) {
+      return next(customError(404, 'Review not found'));
+    }
+
+    // removing the review
+    movie.reviews.splice(reviewIndex, 1);
+
+    // calculate some more properties to update in reviews obj
+    // total number of reviews
+    const totalReviews = movie.reviews.length;
+    // avg rating
+    const avgRating =
+      totalReviews > 0
+        ? movie.reviews.reduce((acc, curr) => acc + curr.rating, 0) /
+          totalReviews
+        : 0;
+
+    // add calculated properties to review obj
+    // updating the number of reviews and avg rating
+    movie.numOfReviews = totalReviews;
+    movie.rating = avgRating;
+
+    await movie.save();
+
+    res.status(200).json({ message: 'Review deleted successfully' });
+  } catch (err) {
+    console.error(`Error while deleting the review ${err}`);
+    next(err);
+  }
+};
