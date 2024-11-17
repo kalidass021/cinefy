@@ -5,7 +5,7 @@ import {
   getAllMovies,
   getSpecificMovie,
   updateMovie,
-  movieReview,
+  addMovieReview,
   deleteMovie,
   deleteReview,
   getNewMovies,
@@ -33,7 +33,7 @@ router.get('/top-rated', getTopRatedMovies);
 router.get('/random', getRandomMovies);
 
 // restricted routes
-router.post('/:id/review', authenticate, checkId, movieReview);
+router.post('/:id/review', authenticate, checkId, addMovieReview);
 
 // admin routes
 router.post('/', authenticate, authorizeAdmin, createMovie);

@@ -58,7 +58,7 @@ export const updateMovie = async (req, res, next) => {
   }
 };
 
-export const movieReview = async (req, res, next) => {
+export const addMovieReview = async (req, res, next) => {
   try {
     const { rating, comment } = req.body;
     const { id: movieId } = req.params;
