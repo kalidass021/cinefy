@@ -13,8 +13,11 @@ import Signin from './pages/Auth/Signin.jsx';
 // restricted
 import PrivateRoute from './pages/Auth/PrivateRoute.jsx';
 import Profile from './pages/User/Profile.jsx';
+
+// admin
 import AdminRoute from './pages/Admin/AdminRoute.jsx';
 import GenreList from './pages/Admin/GenreList.jsx';
+import CreateMovie from './pages/Admin/CreateMovie.jsx';
 
 import Home from './pages/Home.jsx';
 import ErrorDisplay from './components/ErrorDisplay.jsx';
@@ -54,6 +57,10 @@ const appRouter = createBrowserRouter([
             path: 'admin/movies/genre',
             element: <GenreList />,
           },
+          {
+            path: 'admin/movies/create',
+            element: <CreateMovie />,
+          }
         ],
       },
     ],
