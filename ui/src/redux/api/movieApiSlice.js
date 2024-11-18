@@ -16,10 +16,10 @@ export const movieApiSlice = apiSlice.injectEndpoints({
     }),
 
     updateMovie: builder.mutation({
-      query: ({ id, updadatedMovie }) => ({
+      query: ({ id, updatedMovie }) => ({
         url: `${MOVIE_URL}/${id}`,
         method: 'PUT',
-        body: updadatedMovie,
+        body: updatedMovie,
       }),
     }),
 
