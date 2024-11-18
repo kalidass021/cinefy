@@ -192,6 +192,7 @@ const CreateMovie = () => {
             )}
           </select>
         </div>
+        {/* image */}
         <div className='mb-4'>
           <label
             style={
