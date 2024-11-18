@@ -18,6 +18,7 @@ import Profile from './pages/User/Profile.jsx';
 import AdminRoute from './pages/Admin/AdminRoute.jsx';
 import GenreList from './pages/Admin/GenreList.jsx';
 import CreateMovie from './pages/Admin/CreateMovie.jsx';
+import AdminMoviesList from './pages/Admin/AdminMoviesList.jsx';
 
 import Home from './pages/Home.jsx';
 import ErrorDisplay from './components/ErrorDisplay.jsx';
@@ -54,13 +55,17 @@ const appRouter = createBrowserRouter([
         element: <AdminRoute />,
         children: [
           {
-            path: 'admin/movies/genre',
+            path: '/admin/movies/genre',
             element: <GenreList />,
           },
           {
-            path: 'admin/movies/create',
+            path: '/admin/movies/create',
             element: <CreateMovie />,
-          }
+          },
+          {
+            path: '/admin/movies/list',
+            element: <AdminMoviesList />,
+          },
         ],
       },
     ],
