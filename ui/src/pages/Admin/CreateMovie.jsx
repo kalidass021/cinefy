@@ -139,7 +139,7 @@ const CreateMovie = () => {
         </div>
         {/* year */}
         <div className='mb-4'>
-          <label className='block'>Name</label>
+          <label className='block'>Year</label>
           <input
             type='number'
             name='year'
