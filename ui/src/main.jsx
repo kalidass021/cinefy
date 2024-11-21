@@ -23,7 +23,7 @@ import UpdateMovie from './pages/Admin/UpdateMovie.jsx';
 
 import Home from './pages/Home.jsx';
 import ErrorDisplay from './components/ErrorDisplay.jsx';
-
+import AllMovies from './pages/Movies/AllMovies.jsx';
 
 const appRouter = createBrowserRouter([
   {
@@ -41,6 +41,10 @@ const appRouter = createBrowserRouter([
       {
         path: '/signin',
         element: <Signin />,
+      },
+      {
+        path: '/movies',
+        element: <AllMovies />,
       },
       {
         path: '',
@@ -70,7 +74,7 @@ const appRouter = createBrowserRouter([
           },
           {
             path: '/admin/movies/update/:id',
-            element: <UpdateMovie />
+            element: <UpdateMovie />,
           },
         ],
       },
