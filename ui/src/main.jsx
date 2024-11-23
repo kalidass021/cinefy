@@ -24,6 +24,7 @@ import UpdateMovie from './pages/Admin/UpdateMovie.jsx';
 import Home from './pages/Home.jsx';
 import ErrorDisplay from './components/ErrorDisplay.jsx';
 import AllMovies from './pages/Movies/AllMovies.jsx';
+import MovieDetails from './pages/Movies/MovieDetails.jsx';
 
 const appRouter = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ const appRouter = createBrowserRouter([
       {
         path: '/movies',
         element: <AllMovies />,
+      },
+      {
+        path: '/movies/:id',
+        element: <MovieDetails />,
       },
       {
         path: '',
