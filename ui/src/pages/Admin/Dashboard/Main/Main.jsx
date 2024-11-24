@@ -1,6 +1,6 @@
 import SecondaryCard from './SecondaryCard';
 import VideoCard from './VideoCard';
-import RealtimeCard from './RealtimeCard';
+import RealTimeCard from './RealTimeCard';
 
 import { useGetAllUsersQuery } from '../../../../redux/api/usersApiSlice';
 import {
@@ -73,7 +73,7 @@ const Main = () => {
           ))}
         </div>
         <div>
-          <RealtimeCard />
+          <RealTimeCard />
         </div>
       </section>
     </div>
