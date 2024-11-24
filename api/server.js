@@ -3,6 +3,7 @@ import express from 'express';
 import path from 'path';
 import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
+import cors from 'cors';
 
 // files
 import connectDB from './src/config/connectDB.js';
@@ -20,12 +21,16 @@ dotenv.config();
 const app = express();
 
 // middlewares
+app.use(
+  cors({
+    origin: 'cinefy-v1.vercel.app',
+  })
+);
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-
-const PORT = process.env.PORT || PORT;
+const PORT = process.env.PORT || 5000;
 
 // Routes
 app.use('/api/v1/auth', authRoutes);
@@ -39,20 +44,20 @@ const rootDir = path.resolve();
 // this code is only for serving images
 // without this, the image upload functionality will still work,
 // but we won't be able to access the uploaded images via URLs
-app.use("/uploads", express.static(path.join(rootDir + "/uploads")));
+app.use('/uploads', express.static(path.join(rootDir + '/uploads')));
 
 // middleware to handle the errors
 app.use((err, req, res, next) => {
-    const statusCode = err.statusCode || 500;
-    const message = err.message || 'Internal Server Error';
-    res.status(statusCode).json({
-        success: false,
-        statusCode,
-        message,
-    });
+  const statusCode = err.statusCode || 500;
+  const message = err.message || 'Internal Server Error';
+  res.status(statusCode).json({
+    success: false,
+    statusCode,
+    message,
+  });
 });
 
 app.listen(PORT, () => {
-    console.info(`Server is up and listening on port ${PORT}`);
-    connectDB();
+  console.info(`Server is up and listening on port ${PORT}`);
+  connectDB();
 });
