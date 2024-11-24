@@ -3,7 +3,6 @@ import express from 'express';
 import path from 'path';
 import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
-import cors from 'cors';
 
 // files
 import connectDB from './src/config/connectDB.js';
@@ -21,11 +20,6 @@ dotenv.config();
 const app = express();
 
 // middlewares
-app.use(
-  cors({
-    origin: 'cinefy-v1.vercel.app',
-  })
-);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
