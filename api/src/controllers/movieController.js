@@ -78,7 +78,7 @@ export const addMovieReview = async (req, res, next) => {
     );
 
     if (alreadyReviewed) {
-      return next(customError(400, 'Movie already reviewd'));
+      return next(customError(400, 'Movie already reviewed'));
     }
 
     const review = {
