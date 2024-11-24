@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useGetAllMoviesQuery } from '../../redux/api/movieApiSlice';
+import { IMAGE_BASE_URL } from '../../config/constants';
 
 const AdminMoviesList = () => {
   const { data: movies } = useGetAllMoviesQuery();
@@ -24,7 +25,7 @@ const AdminMoviesList = () => {
                     className='max-w-sm m-[2rem] rounded overflow-hidden shadow-lg'
                   >
                     <img
-                      src={movie.image}
+                      src={`${IMAGE_BASE_URL}${movie.image}`}
                       alt={movie.name}
                       className='w-full h-48 object-cover'
                     />

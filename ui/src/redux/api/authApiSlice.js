@@ -1,5 +1,5 @@
 import { apiSlice } from './apiSlice';
-import { AUTH_URL } from '../constants';
+import { AUTH_URL } from '../../config/constants';
 
 export const authApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({

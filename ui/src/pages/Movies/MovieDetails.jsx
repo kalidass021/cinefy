@@ -7,6 +7,7 @@ import {
   useAddMovieReviewMutation,
 } from '../../redux/api/movieApiSlice';
 import MovieTabs from './MovieTabs';
+import { IMAGE_BASE_URL } from '../../config/constants';
 
 const MovieDetails = () => {
   const { id: movieId } = useParams();
@@ -50,7 +51,7 @@ const MovieDetails = () => {
       <div className='mt-[2rem]'>
         <div className='flex justify-center items-center'>
           <img
-            src={movie?.image}
+          src={`${IMAGE_BASE_URL}${movie?.image}`}
             alt={movie?.name}
             className='w-[70%] rounded '
           />
