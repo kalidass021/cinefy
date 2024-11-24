@@ -8,7 +8,7 @@ import {
 } from '../../redux/api/movieApiSlice';
 import { useFetchGenresQuery } from '../../redux/api/genreApiSlice';
 import MovieCard from './MovieCard';
-import banner from '../../../public/assets/images/banner.jpg';
+import banner from '../../assets/images/banner.jpg';
 import {
   setMoviesFilter,
   setFilteredMovies,
