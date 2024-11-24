@@ -21,6 +21,7 @@ import CreateMovie from './pages/Admin/CreateMovie.jsx';
 import AdminMoviesList from './pages/Admin/AdminMoviesList.jsx';
 import UpdateMovie from './pages/Admin/UpdateMovie.jsx';
 import AllReviews from './pages/Admin/AllReviews.jsx';
+import AdminDashboard from './pages/Admin/Dashboard/AdminDashboard.jsx';
 
 import Home from './pages/Home.jsx';
 import ErrorDisplay from './components/ErrorDisplay.jsx';
@@ -81,6 +82,10 @@ const appRouter = createBrowserRouter([
           {
             path: '/admin/movies/update/:id',
             element: <UpdateMovie />,
+          },
+          {
+            path: '/admin/movies/dashboard',
+            element: <AdminDashboard />,
           },
           {
             path: '/admin/movies/reviews',

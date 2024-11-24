@@ -10,8 +10,11 @@ export const userApiSlice = apiSlice.injectEndpoints({
         body: data,
       }),
     }),
+
+    getAllUsers: builder.query({
+      query: () => USERS_URL,
+    }),
   }),
 });
 
-
-export const {useProfileMutation} = userApiSlice;
+export const { useProfileMutation, useGetAllUsersQuery } = userApiSlice;
