@@ -6,7 +6,7 @@ import {
   useUploadImageMutation,
   useDeleteMovieMutation,
 } from '../../redux/api/movieApiSlice';
-import { toast } from 'react-toastify';
+import { toast } from 'react-hot-toast';
 
 const UpdateMovie = () => {
   const { id } = useParams();

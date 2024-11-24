@@ -7,7 +7,7 @@ import {
 import { MdOutlineLocalMovies } from 'react-icons/md';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
+import { toast } from 'react-hot-toast';
 import { useSignoutMutation } from '../../redux/api/authApiSlice';
 import { signout } from '../../redux/slices/auth/authSlice';
 

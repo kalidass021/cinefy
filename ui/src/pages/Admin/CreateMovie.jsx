@@ -5,7 +5,7 @@ import {
   useUploadImageMutation,
 } from '../../redux/api/movieApiSlice';
 import { useFetchGenresQuery } from '../../redux/api/genreApiSlice';
-import { toast } from 'react-toastify';
+import { toast } from 'react-hot-toast';
 
 const CreateMovie = () => {
   const navigate = useNavigate();
