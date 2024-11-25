@@ -21,7 +21,12 @@ dotenv.config();
 const app = express();
 
 // middlewares
-app.use(cors());
+app.use(
+  cors({
+    origin: ['http://localhost:5173', 'https://cinefy-teqc.onrender.com'], // Allow both dev and prod origins
+    credentials: true,
+  })
+);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
