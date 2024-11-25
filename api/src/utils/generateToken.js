@@ -10,13 +10,14 @@ const generateToken = (res, userId) => {
   // below jwt is variable name for the token
   res.cookie('jwt', token, {
     httpOnly: true, // prevent XSS attacks and cross-site scripting attacks
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'None', // prevent CSRF attacks and cross-site request forgery attacks if it set to strict
+    secure:
+      process.env.NODE_ENV === 'development' ||
+      process.env.NODE_ENV === 'production',
+    sameSite: 'strict', // prevent CSRF attacks and cross-site request forgery attacks if it set to strict
     maxAge: 30 * 24 * 60 * 60 * 1000, // milli seconds
   });
 
   return token;
 };
-
 
 export default generateToken;
