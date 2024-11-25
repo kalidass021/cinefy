@@ -13,7 +13,7 @@ const generateToken = (res, userId) => {
     secure:
       process.env.NODE_ENV === 'development' ||
       process.env.NODE_ENV === 'production',
-    sameSite: 'strict', // prevent CSRF attacks and cross-site request forgery attacks if it set to strict
+    sameSite: 'None', // prevent CSRF attacks and cross-site request forgery attacks if it set to strict
     maxAge: 30 * 24 * 60 * 60 * 1000, // milli seconds
   });
 
