@@ -1,12 +1,12 @@
 import SecondaryCard from './SecondaryCard';
 import VideoCard from './VideoCard';
 import RealTimeCard from './RealTimeCard';
-
 import { useGetAllUsersQuery } from '../../../../redux/api/usersApiSlice';
 import {
   useGetAllMoviesQuery,
   useGetTopRatedMoviesQuery,
 } from '../../../../redux/api/movieApiSlice';
+import { IMAGE_BASE_URL } from '../../../../config/constants';
 
 const Main = () => {
   const {
@@ -65,7 +65,7 @@ const Main = () => {
           {topRatedMovies?.map((movie) => (
             <VideoCard
               key={movie._id}
-              image={movie.image}
+              image={`${IMAGE_BASE_URL}${movie?.image}`}
               title={movie.name}
               date={movie.year}
               reviews={movie.numOfReviews}
