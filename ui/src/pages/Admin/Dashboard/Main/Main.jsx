@@ -6,7 +6,7 @@ import {
   useGetAllMoviesQuery,
   useGetTopRatedMoviesQuery,
 } from '../../../../redux/api/movieApiSlice';
-import { IMAGE_BASE_URL } from '../../../../config/constants';
+import { BASE_URL } from '../../../../config/constants';
 
 const Main = () => {
   const {
@@ -65,7 +65,7 @@ const Main = () => {
           {topRatedMovies?.map((movie) => (
             <VideoCard
               key={movie._id}
-              image={`${IMAGE_BASE_URL}${movie?.image}`}
+              image={`${BASE_URL}${movie?.image}`}
               title={movie.name}
               date={movie.year}
               reviews={movie.numOfReviews}
