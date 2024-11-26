@@ -43,7 +43,7 @@ const MoviesContainerPage = () => {
 
       <section className='flex flex-col justify-center items-center w-full lg:w-auto'>
         <div className='w-full lg:w-[100rem] mb-8'>
-          <h1 className='mb-5 '>Choose For You</h1>
+          <h1 className='mb-5 '>Picks for you</h1>
           <SliderUtil movies={randomMovies} />
         </div>
 
