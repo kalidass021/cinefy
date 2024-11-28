@@ -6,7 +6,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 
 // files
-import connectDB from './src/config/connectDB.js';
+import dbConnect from './src/config/dbConnect.js';
 
 // routes
 import authRoutes from './src/routes/authRoutes.js';
@@ -60,5 +60,5 @@ app.use((err, req, res, next) => {
 
 app.listen(PORT, () => {
   console.info(`Server is up and listening on port ${PORT}`);
-  connectDB();
+  dbConnect();
 });

@@ -1,6 +1,6 @@
 import { connect } from 'mongoose';
 
-const connectDB = async () => {
+const dbConnect = async () => {
   try {
     const conn = await connect(process.env.MONGO_URI);
     console.info(`MongoDB connected 👍: ${conn.connection.host}`);
@@ -10,4 +10,4 @@ const connectDB = async () => {
   }
 };
 
-export default connectDB;
+export default dbConnect;
