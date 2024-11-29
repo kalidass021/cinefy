@@ -31,8 +31,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-const PORT = process.env.PORT || 5000;
-
 // Routes
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/users', userRoutes);
@@ -59,7 +57,19 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.listen(PORT, () => {
-  console.info(`Server is up and listening on port ${PORT}`);
+const serverSetup = () => {
+  const port = process.env.PORT || 5000;
+  const server = app.listen(port, () => {
+    // get the address information
+    const address = server.address();
+    const host = process.env.NODE_ENV === 'development' ? 'localhost' : address.address;
+    const url = `http://${host}:${port}`;
+    console.info(`Server is up and listening at ${url}`);
+  });
+  // connect to db
   dbConnect();
-});
+
+  return server;
+};
+
+export default serverSetup;
