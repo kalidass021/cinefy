@@ -59,14 +59,11 @@ app.use((err, req, res, next) => {
 
 const serverSetup = () => {
   const port = process.env.PORT || 5000;
-  // use localhost in development and all interfaces in production
-  const hostname = process.env.NODE_ENV === 'development' ? '127.0.0.1' : '0.0.0.0';
-
-  const server = app.listen(port, hostname, () => {
-    // get the address information
-    const address = server.address();
-    const host = process.env.NODE_ENV === 'development' ? 'localhost' : address.address;
-    const url = `http://${host}:${port}`;
+  const server = app.listen(port, () => {
+    const url =
+      process.env.NODE_ENV === 'development'
+        ? `http://localhost:${port}`
+        : process.env.API_URL;
     console.info(`Server is up and listening at ${url}`);
   });
   // connect to db
