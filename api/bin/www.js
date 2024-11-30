@@ -1,9 +1,9 @@
-import serverSetup from '../server.js';
+import serverConfig from '../server.js';
 
 const start = () => {
   try {
-    const appServer = serverSetup;
-    appServer();
+    // attempt to start the server
+    serverConfig();
   } catch (err) {
     console.error(`Startup Error: ${err}`);
     process.exit(1); // exit with failure
