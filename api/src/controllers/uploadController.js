@@ -1,7 +1,7 @@
 import multer from 'multer';
 import fileFilter from '../utils/fileFilter.js';
 import multerStorage from '../utils/multerStorage.js';
-import customError from '../utils/customError.js';
+import error from '../utils/error.js';
 
 // initialize multer with storage, and fileFilter configuration
 // multer expects storage and fileFilter keywords
@@ -18,7 +18,7 @@ export const uploadImage = (req, res, next) => {
 
       if (!req.file) {
         // handle case where no file is provided
-        return next(customError(400, 'No image file provided'));
+        return next(error(400, 'No image file provided'));
       }
 
       res.status(200).json({

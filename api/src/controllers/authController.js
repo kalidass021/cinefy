@@ -2,35 +2,33 @@ import bcrypt from 'bcryptjs';
 import User from '../models/User.js';
 // import asyncHandler from '../middlewares/asyncHandler.js';
 import generateToken from '../utils/generateToken.js';
-import customError from '../utils/customError.js';
+import error from '../utils/error.js';
 
 export const signup = async (req, res, next) => {
   try {
     const { username, email, password } = req.body;
 
     if (!username || !email || !password) {
-      return next(customError(400, 'Please fill all the fields'));
+      return next(error(400, 'Please fill all the fields'));
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      return next(customError(400, 'Invalid email format'));
+      return next(error(400, 'Invalid email format'));
     }
 
     if (password.length < 6) {
-      return next(
-        customError(400, 'Password must be atleaset 6 characters long')
-      );
+      return next(error(400, 'Password must be atleaset 6 characters long'));
     }
 
     const usernameExists = await User.findOne({ username });
     if (usernameExists) {
-      return next(customError(400, 'Username already exists'));
+      return next(error(400, 'Username already exists'));
     }
 
     const emailExists = await User.findOne({ email });
     if (emailExists) {
-      return next(customError(400, 'Email already exists'));
+      return next(error(400, 'Email already exists'));
     }
 
     // hash the user password
@@ -59,13 +57,13 @@ export const signin = async (req, res, next) => {
     const { email, password } = req.body;
 
     if (!email || !password) {
-      return next(customError(400, 'Please fill all the details'));
+      return next(error(400, 'Please fill all the details'));
     }
 
     const existingUser = await User.findOne({ email });
 
     if (!existingUser) {
-      return next(customError(401, 'Invalid email or password'));
+      return next(error(401, 'Invalid email or password'));
     }
 
     // if existingUser check the password
@@ -75,7 +73,7 @@ export const signin = async (req, res, next) => {
     );
 
     if (!isPasswordValid) {
-      return next(customError(401, 'Invalid email or password'));
+      return next(error(401, 'Invalid email or password'));
     }
 
     // call the generatetoken function to generate token and set the cookie
@@ -94,15 +92,15 @@ export const signin = async (req, res, next) => {
 };
 
 export const signoutCurrentUser = async (req, res, next) => {
-    try {
-        res.cookie('jwt', '', {
-            httpOnly: true,
-            expires: new Date(0),
-        });
+  try {
+    res.cookie('jwt', '', {
+      httpOnly: true,
+      expires: new Date(0),
+    });
 
-        res.status(200).json({message: 'logged out successfully'});
-    } catch (err) {
-        console.error(`Error in signout controller ${err}`);
-        next(err);
-    }
-}
+    res.status(200).json({ message: 'logged out successfully' });
+  } catch (err) {
+    console.error(`Error in signout controller ${err}`);
+    next(err);
+  }
+};

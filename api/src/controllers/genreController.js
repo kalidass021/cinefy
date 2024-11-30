@@ -1,18 +1,18 @@
 import Genre from '../models/Genre.js';
-import customError from '../utils/customError.js';
+import error from '../utils/error.js';
 
 export const createGenre = async (req, res, next) => {
   try {
     const { name } = req.body;
 
     if (!name) {
-      return next(customError(400, 'Name is required'));
+      return next(error(400, 'Name is required'));
     }
 
     const existingGenre = await Genre.findOne({ name });
 
     if (existingGenre) {
-      return next(customError(400, 'Genre already exists'));
+      return next(error(400, 'Genre already exists'));
     }
 
     const genre = await new Genre({ name }).save();
@@ -31,7 +31,7 @@ export const updateGenre = async (req, res, next) => {
 
     const genre = await Genre.findOne({ _id: id });
     if (!genre) {
-      return next(customError(404, 'Genre not found'));
+      return next(error(404, 'Genre not found'));
     }
     // updating the genre
     genre.name = name;
@@ -52,7 +52,7 @@ export const removeGenre = async (req, res, next) => {
 
     // if removed === null
     if (!removed) {
-      return next(customError(404, 'Genre not found'));
+      return next(error(404, 'Genre not found'));
     }
 
     res.status(200).json(removed);
@@ -77,7 +77,7 @@ export const readGenre = async (req, res, next) => {
   try {
     const genre = await Genre.findOne({_id: req.params.id});
     if (!genre) {
-      return next(customError(404, 'Genre not found'));
+      return next(error(404, 'Genre not found'));
     }
 
     res.status(200).json(genre);

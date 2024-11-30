@@ -1,5 +1,5 @@
 import Movie from '../models/Movie.js';
-import customError from '../utils/customError.js';
+import error from '../utils/error.js';
 
 export const createMovie = async (req, res, next) => {
   try {
@@ -28,7 +28,7 @@ export const getSpecificMovie = async (req, res, next) => {
     const { id } = req.params;
     const specificMovie = await Movie.findById(id);
     if (!specificMovie) {
-      return next(customError(404, 'Movie not found'));
+      return next(error(404, 'Movie not found'));
     }
 
     res.status(200).json(specificMovie);
@@ -48,7 +48,7 @@ export const updateMovie = async (req, res, next) => {
     });
 
     if (!updatedMovie) {
-      return next(customError(404, 'Movie not found'));
+      return next(error(404, 'Movie not found'));
     }
 
     res.status(200).json(updatedMovie);
@@ -69,7 +69,7 @@ export const addMovieReview = async (req, res, next) => {
     const movie = await Movie.findById(movieId);
 
     if (!movie) {
-      return next(customError(404, 'Movie not found'));
+      return next(error(404, 'Movie not found'));
     }
 
     // check if the movie is already reviewed or not
@@ -78,7 +78,7 @@ export const addMovieReview = async (req, res, next) => {
     );
 
     if (alreadyReviewed) {
-      return next(customError(400, 'Movie already reviewed'));
+      return next(error(400, 'Movie already reviewed'));
     }
 
     const review = {
@@ -115,7 +115,7 @@ export const deleteMovie = async (req, res, next) => {
     const deleteMovie = await Movie.findByIdAndDelete(id);
 
     if (!deleteMovie) {
-      return next(customError(404, 'Movie not found'));
+      return next(error(404, 'Movie not found'));
     }
 
     res.status(200).json({ message: 'Movie deleted successfully' });
@@ -133,7 +133,7 @@ export const deleteReview = async (req, res, next) => {
     const movie = await Movie.findById(movieId);
 
     if (!movie) {
-      return next(customError(404, 'Movie not found'));
+      return next(error(404, 'Movie not found'));
     }
     // find the review index
     const reviewIndex = movie.reviews.findIndex(
@@ -141,7 +141,7 @@ export const deleteReview = async (req, res, next) => {
     );
 
     if (reviewIndex === -1) {
-      return next(customError(404, 'Review not found'));
+      return next(error(404, 'Review not found'));
     }
 
     // removing the review

@@ -1,6 +1,6 @@
 import bcrypt from 'bcryptjs';
 import User from '../models/User.js';
-import customError from '../utils/customError.js';
+import error from '../utils/error.js';
 
 export const getAllUsers = async (req, res, next) => {
   try {
@@ -17,7 +17,7 @@ export const getCurrentUserProfile = async (req, res, next) => {
     const user = await User.findById(req.user._id).select('-password');
 
     if (!user) {
-      return next(customError(404, 'User not found'));
+      return next(error(404, 'User not found'));
     }
 
     res.status(200).json({
@@ -36,7 +36,7 @@ export const updateCurrentUserProfile = async (req, res, next) => {
     const user = await User.findById(req.user._id);
 
     if (!user) {
-      return next(customError(404, 'User not found'));
+      return next(error(404, 'User not found'));
     }
 
     // if user
