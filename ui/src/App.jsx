@@ -1,12 +1,12 @@
 import { Outlet } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
-import Navigation from './pages/Auth/Navigation';
+import NavigationDock from './components/NavigationDock';
 
 const App = () => {
   return (
     <>
       <Toaster position='top-right' reverseOrder={false} />
-      <Navigation />
+      <NavigationDock />
       <main className='py-3'>
         <Outlet />
       </main>
