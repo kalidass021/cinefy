@@ -2,18 +2,78 @@ import { useRouteError } from 'react-router-dom';
 
 const ErrorDisplay = () => {
   const err = useRouteError();
+  console.error(err);
   return (
-    <div className='flex flex-col justify-center items-center h-screen bg-red-50 text-gray-800 overflow-hidden'>
-      <div className='p-8 bg-white shadow-lg rounded-lg'>
-        <h1 className='mb-6 text-6xl font-extrabold text-red-600'>
-          Oops!!
-        </h1>
-        <h2 className='mb-4 text-2xl font-bold'>Something went wrong</h2>
-        <h3 className='text-lg'>
-          <span className='font-bold'>Error {err.status}:</span>
-          {err.statusText}
-        </h3>
-      </div>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: '100vh',
+        padding: '1rem',
+        boxSizing: 'border-box',
+        paddingTop: '200px',
+        overflow: 'hidden',
+      }}
+    >
+      <h1
+        style={{
+          color: '#ff4c4c',
+          // fontWeight: 'bold',
+          fontSize: '1.5rem',
+          marginBottom: '1rem',
+        }}
+      >
+        Uh oh!
+      </h1>
+      <p
+        style={{
+          color: '#ff4c4c',
+          fontSize: '1.5rem',
+          marginBottom: '1.5rem',
+        }}
+      >
+        Something went wrong.
+      </p>
+      {err && (
+        <>
+          <p
+            style={{
+              color: '#ff4c4c',
+              fontSize: '1.5rem',
+              fontWeight: 'bold',
+              marginBottom: '0.5rem',
+            }}
+          >
+            <strong>{err.status && `${err.status} - ${err.statusText}`}</strong>
+          </p>
+          <p
+            style={{
+              color: '#ff4c4c',
+              fontSize: '1.25rem',
+              marginBottom: '1rem',
+            }}
+          >
+            {err.message}
+          </p>
+          <pre
+            style={{
+              padding: '1rem',
+              borderRadius: '0.5rem',
+              textAlign: 'left',
+              width: '70%',
+              minHeight: '65vh', // Reduced this value
+              overflowY: 'auto',
+              fontSize: '0.875rem',
+              color: '#d1d5db',
+              backgroundColor: 'transparent',
+            }}
+          >
+            {err?.error?.stack || err.stack}
+          </pre>
+        </>
+      )}
     </div>
   );
 };
