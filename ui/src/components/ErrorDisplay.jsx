@@ -17,7 +17,7 @@ const ErrorDisplay = () => {
         overflow: 'hidden',
       }}
     >
-      <h1
+      <p
         style={{
           color: '#ff4c4c',
           // fontWeight: 'bold',
@@ -26,7 +26,7 @@ const ErrorDisplay = () => {
         }}
       >
         Uh oh!
-      </h1>
+      </p>
       <p
         style={{
           color: '#ff4c4c',
