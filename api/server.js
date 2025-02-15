@@ -2,11 +2,7 @@
 import express from 'express';
 import path from 'path';
 import cookieParser from 'cookie-parser';
-import dotenv from 'dotenv';
 import cors from 'cors';
-
-// files
-import dbConnect from './src/config/dbConnect.js';
 
 // routes
 import authRoutes from './src/routes/authRoutes.js';
@@ -16,8 +12,6 @@ import movieRoutes from './src/routes/movieRoutes.js';
 import uploadRoutes from './src/routes/uploadRoutes.js';
 
 //configurations
-dotenv.config();
-
 const app = express();
 
 // middlewares
@@ -67,19 +61,4 @@ app.use((req, res) => {
   res.status(404).json({error: 'Not found'});
 });
 
-const serverConfig = () => {
-  const port = process.env.PORT || 5000;
-  const server = app.listen(port, () => {
-    const url =
-      process.env.NODE_ENV === 'development'
-        ? `http://localhost:${port}`
-        : process.env.API_URL;
-    console.info(`Server is up and listening at ${url}`);
-  });
-  // connect to db
-  dbConnect();
-
-  return server;
-};
-
-export default serverConfig;
+export default app;
