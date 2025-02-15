@@ -1,4 +1,4 @@
-import app from '../server.js';
+import app from '../app.js';
 import dbConnect from '../src/config/dbConnect.js';
 
 const start = () => {
