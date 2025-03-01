@@ -1,10 +1,9 @@
-// packages
 import express from 'express';
 import path from 'path';
 import cookieParser from 'cookie-parser';
-import cors from 'cors';
 
 // files
+import cors from './src/config/cors.js';
 import apiStatus from './src/utils/apiStatus.js';
 import notFound from './src/middlewares/notFound.js';
 import errorHandler from './src/middlewares/errorHandler.js';
@@ -20,12 +19,7 @@ import uploadRoutes from './src/routes/uploadRoutes.js';
 const app = express();
 
 // middlewares
-app.use(
-  cors({
-    origin: ['http://localhost:5173', 'https://cinefy-v1.vercel.app'], // Allow both dev and prod origins
-    credentials: true,
-  })
-);
+app.use(cors);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
