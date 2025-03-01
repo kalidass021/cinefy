@@ -41,9 +41,20 @@ const rootDir = path.resolve();
 // but we won't be able to access the uploaded images via URLs
 app.use('/uploads', express.static(path.join(rootDir + '/uploads')));
 
-// handle undefined routes
-app.use(notFound);
-// handle the errors
-app.use(errorHandler);
+app.use(notFound); // handle undefined routes
+app.use(errorHandler); // handle the errors
 
-export default app;
+const startServer = () => {
+  const port = parseInt(process.env.PORT, 10) || 5000;
+  const server = app.listen(port, () => {
+    const url =
+      process.env.NODE_ENV === 'development'
+        ? `http://localhost:${port}`
+        : process.env.API_URL;
+    console.info(`Server is up and listening at ${url}`);
+  });
+
+  return server;
+};
+
+export default startServer;
