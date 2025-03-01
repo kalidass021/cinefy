@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 
 // files
+import apiStatus from './src/utils/apiStatus.js';
 import notFound from './src/middlewares/notFound.js';
 import errorHandler from './src/middlewares/errorHandler.js';
 
@@ -30,9 +31,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // handle base api url to show api status
-app.get('/', (req, res) => {
-  res.status(200).json({ message: 'API is working!' });
-});
+app.get('/', apiStatus);
 
 // Routes
 app.use('/api/v1/auth', authRoutes);
