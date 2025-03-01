@@ -4,6 +4,10 @@ import path from 'path';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 
+// files
+import notFound from './src/middlewares/notFound.js';
+import errorHandler from './src/middlewares/errorHandler.js';
+
 // routes
 import authRoutes from './src/routes/authRoutes.js';
 import userRoutes from './src/routes/userRoutes.js';
@@ -44,21 +48,9 @@ const rootDir = path.resolve();
 // but we won't be able to access the uploaded images via URLs
 app.use('/uploads', express.static(path.join(rootDir + '/uploads')));
 
-// middleware to handle the errors
-app.use((err, req, res, next) => {
-  err.stack && console.error(err.stack);
-  const statusCode = err.statusCode || 500;
-  const message = err.message || 'Internal Server Error';
-  res.status(statusCode).json({
-    success: false,
-    statusCode,
-    message,
-  });
-});
-
-// middleware to handle undefined routes
-app.use((req, res) => {
-  res.status(404).json({error: 'Not found'});
-});
+// handle undefined routes
+app.use(notFound);
+// handle the errors
+app.use(errorHandler);
 
 export default app;
