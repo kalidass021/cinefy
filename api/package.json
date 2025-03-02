@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "description": "movie review writting application",
   "main": "./src/bin/www.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "swc src -d dist",
     "dev": "nodemon --env-file=.env --require @swc-node/register ./src/bin/www.js",
-    "start": "nodemon ./src/bin/www.js",
+    "start": "nodemon ./dist/src/bin/www.js",
     "ui": "cd ../ui && npm run dev",
     "api": "npm run dev",
     "app": "concurrently \"npm run api\" \"npm run ui\""
