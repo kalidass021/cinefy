@@ -1,0 +1,12 @@
+{
+  "jsc": {
+    "parser": {
+      "syntax": "ecmascript",
+      "dynamicImport": true
+    },
+    "target": "es2022"
+  },
+  "module": {
+    "type": "commonjs"
+  }
+}

@@ -1,4 +1,4 @@
-import dbConnect from '../src/config/dbConnect.js';
+import dbConnect from '../config/dbConnect.js';
 
 (async () => {
   try {
