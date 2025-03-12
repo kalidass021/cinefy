@@ -1,10 +1,10 @@
-import dbConnect from '../config/dbConnect.js';
+import dbConnect from '../config/dbConnect';
 
 (async () => {
   try {
     // connect to db
     await dbConnect();
-    const { default: startServer } = await import('../server.js');
+    const { default: startServer } = await import('../server');
     startServer(); // attempt to start the server
   } catch (err) {
     console.error(`Startup Error: ${err}`);
