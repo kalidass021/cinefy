@@ -1,5 +1,5 @@
-import Genre from '../models/Genre.js';
-import error from '../utils/error.js';
+import Genre from '../models/Genre';
+import error from '../utils/error';
 
 export const createGenre = async (req, res, next) => {
   try {

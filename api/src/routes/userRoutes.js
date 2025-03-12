@@ -4,9 +4,9 @@ import {
   getAllUsers,
   getCurrentUserProfile,
   updateCurrentUserProfile,
-} from '../controllers/userController.js';
+} from '../controllers/userController';
 // middlewares
-import { authenticate, authorizeAdmin } from '../middlewares/auth.js';
+import { authenticate, authorizeAdmin } from '../middlewares/auth';
 
 const router = Router();
 

@@ -1,7 +1,7 @@
 import multer from 'multer';
-import fileFilter from '../utils/fileFilter.js';
-import multerStorage from '../utils/multerStorage.js';
-import error from '../utils/error.js';
+import fileFilter from '../utils/fileFilter';
+import multerStorage from '../utils/multerStorage';
+import error from '../utils/error';
 
 // initialize multer with storage, and fileFilter configuration
 // multer expects storage and fileFilter keywords

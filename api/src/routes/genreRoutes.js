@@ -1,9 +1,9 @@
 import {Router} from 'express';
 // controllers
-import { createGenre, updateGenre, removeGenre, fetchGenres, readGenre } from '../controllers/genreController.js';
+import { createGenre, updateGenre, removeGenre, fetchGenres, readGenre } from '../controllers/genreController';
 
 // middlewares
-import { authenticate, authorizeAdmin } from '../middlewares/auth.js';
+import { authenticate, authorizeAdmin } from '../middlewares/auth';
 
 const router = Router();
 

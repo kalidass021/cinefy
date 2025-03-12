@@ -1,5 +1,5 @@
 import { isValidObjectId } from 'mongoose';
-import error from '../utils/error.js';
+import error from '../utils/error';
 
 const checkId = (req, res, next) => {
   if (!isValidObjectId(req.params.id)) {

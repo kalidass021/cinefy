@@ -11,10 +11,10 @@ import {
   getNewMovies,
   getTopRatedMovies,
   getRandomMovies,
-} from '../controllers/movieController.js';
+} from '../controllers/movieController';
 // middlewares
-import { authenticate, authorizeAdmin } from '../middlewares/auth.js';
-import checkId from '../middlewares/checkId.js';
+import { authenticate, authorizeAdmin } from '../middlewares/auth';
+import checkId from '../middlewares/checkId';
 
 const router = Router();
 
