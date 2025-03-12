@@ -1,5 +1,5 @@
-import Movie from '../models/Movie';
-import error from '../utils/error';
+import { Movie } from '../models';
+import { error } from '../utils';
 
 export const createMovie = async (req, res, next) => {
   try {

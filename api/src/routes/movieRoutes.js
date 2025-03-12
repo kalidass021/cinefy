@@ -13,8 +13,8 @@ import {
   getRandomMovies,
 } from '../controllers/movieController';
 // middlewares
-import { authenticate, authorizeAdmin } from '../middlewares/auth';
-import checkId from '../middlewares/checkId';
+import { authenticate, authorizeAdmin } from '../middlewares';
+import { checkId } from '../middlewares';
 
 const router = Router();
 
@@ -38,7 +38,17 @@ router.post('/:id/review', authenticate, checkId, addMovieReview);
 // admin routes
 router.post('/', authenticate, authorizeAdmin, createMovie);
 router.put(`/:id${objectIdPattern}`, authenticate, authorizeAdmin, updateMovie);
-router.delete(`/:id${objectIdPattern}`, authenticate, authorizeAdmin, deleteMovie);
-router.delete(`/:id${objectIdPattern}/review`, authenticate, authorizeAdmin, deleteReview);
+router.delete(
+  `/:id${objectIdPattern}`,
+  authenticate,
+  authorizeAdmin,
+  deleteMovie
+);
+router.delete(
+  `/:id${objectIdPattern}/review`,
+  authenticate,
+  authorizeAdmin,
+  deleteReview
+);
 
 export default router;

@@ -1,19 +1,18 @@
 import express from 'express';
 import path from 'path';
 import cookieParser from 'cookie-parser';
-
 // files
-import cors from './config/cors';
-import apiStatus from './utils/apiStatus';
-import notFound from './middlewares/notFound';
-import errorHandler from './middlewares/errorHandler';
-
+import { cors } from './config';
+import { apiStatus } from './utils';
+import { notFound, errorHandler } from './middlewares';
 // routes
-import authRoutes from './routes/authRoutes';
-import userRoutes from './routes/userRoutes';
-import genreRoutes from './routes/genreRoutes';
-import movieRoutes from './routes/movieRoutes';
-import uploadRoutes from './routes/uploadRoutes';
+import {
+  authRoutes,
+  userRoutes,
+  genreRoutes,
+  movieRoutes,
+  uploadRoutes,
+} from './routes';
 
 //configurations
 const app = express();

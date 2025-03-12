@@ -1,7 +1,5 @@
 import multer from 'multer';
-import fileFilter from '../utils/fileFilter';
-import multerStorage from '../utils/multerStorage';
-import error from '../utils/error';
+import { fileFilter, multerStorage, error } from '../utils';
 
 // initialize multer with storage, and fileFilter configuration
 // multer expects storage and fileFilter keywords

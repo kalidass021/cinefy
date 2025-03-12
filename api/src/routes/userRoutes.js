@@ -6,7 +6,7 @@ import {
   updateCurrentUserProfile,
 } from '../controllers/userController';
 // middlewares
-import { authenticate, authorizeAdmin } from '../middlewares/auth';
+import { authenticate, authorizeAdmin } from '../middlewares';
 
 const router = Router();
 

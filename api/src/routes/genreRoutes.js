@@ -3,7 +3,7 @@ import {Router} from 'express';
 import { createGenre, updateGenre, removeGenre, fetchGenres, readGenre } from '../controllers/genreController';
 
 // middlewares
-import { authenticate, authorizeAdmin } from '../middlewares/auth';
+import { authenticate, authorizeAdmin } from '../middlewares';
 
 const router = Router();
 

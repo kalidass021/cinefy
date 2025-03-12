@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
-import User from '../models/User';
+import { User } from '../models';
 import asyncHandler from './asyncHandler';
-import error from '../utils/error';
+import { error } from '../utils';
 
 // check if the user is authenticated or not
 

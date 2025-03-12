@@ -1,5 +1,5 @@
-import Genre from '../models/Genre';
-import error from '../utils/error';
+import { Genre } from '../models';
+import { error } from '../utils';
 
 export const createGenre = async (req, res, next) => {
   try {
@@ -71,11 +71,11 @@ export const fetchGenres = async (req, res, next) => {
     console.error(`Error while fetch genres ${err}`);
     next(err);
   }
-}
+};
 
 export const readGenre = async (req, res, next) => {
   try {
-    const genre = await Genre.findOne({_id: req.params.id});
+    const genre = await Genre.findOne({ _id: req.params.id });
     if (!genre) {
       return next(error(404, 'Genre not found'));
     }
@@ -85,4 +85,4 @@ export const readGenre = async (req, res, next) => {
     console.error(`Error while reading specific genre ${err}`);
     next(err);
   }
-}
+};

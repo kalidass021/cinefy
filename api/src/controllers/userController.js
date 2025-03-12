@@ -1,6 +1,6 @@
 import bcrypt from 'bcryptjs';
-import User from '../models/User';
-import error from '../utils/error';
+import { User } from '../models';
+import { error } from '../utils';
 
 export const getAllUsers = async (req, res, next) => {
   try {
