@@ -1,7 +1,7 @@
 import bcrypt from 'bcryptjs';
-import {User} from '../models';
+import { User } from '../models';
 // import asyncHandler from '../middlewares/asyncHandler.js';
-import {generateToken, error} from '../utils';
+import { generateToken, error } from '../utils';
 
 export const signup = async (req, res, next) => {
   try {
