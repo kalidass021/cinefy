@@ -5,7 +5,7 @@ import {
   useGetRandomMoviesQuery,
 } from '../../redux/api/movieApiSlice';
 import { useFetchGenresQuery } from '../../redux/api/genreApiSlice';
-import SliderUtil from '../../components/SliderUtil';
+import { SliderUtil } from '../../components';
 
 const MoviesContainerPage = () => {
   const { data: newMovies } = useGetNewMoviesQuery();

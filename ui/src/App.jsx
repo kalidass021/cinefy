@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
-import NavigationDock from './components/NavigationDock';
+import { NavigationDock } from './components';
 import useKeepAwake from './hooks/useKeepAwake';
 import { BASE_URL } from './config/constants';
 

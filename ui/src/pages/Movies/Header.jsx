@@ -1,9 +1,9 @@
 import { useGetNewMoviesQuery } from '../../redux/api/movieApiSlice';
 import { Link } from 'react-router-dom';
-import SliderUtil from '../../components/SliderUtil';
+import { SliderUtil } from '../../components';
 
 const Header = () => {
-  const { data: newMovies} = useGetNewMoviesQuery();
+  const { data: newMovies } = useGetNewMoviesQuery();
   return (
     <div
       className='flex flex-col mt-[2rem] ml-[2rem] md:flex-row justify-between

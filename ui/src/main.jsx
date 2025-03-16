@@ -7,26 +7,27 @@ import './index.css';
 import App from './App.jsx';
 
 // auth
-import Signup from './pages/Auth/Signup.jsx';
-import Signin from './pages/Auth/Signin.jsx';
+import { Signup, Signin, PrivateRoute } from './pages/Auth';
 
 // restricted
-import PrivateRoute from './pages/Auth/PrivateRoute.jsx';
-import Profile from './pages/User/Profile.jsx';
+import { Profile } from './pages/User';
 
 // admin
-import AdminRoute from './pages/Admin/AdminRoute.jsx';
-import GenreList from './pages/Admin/GenreList.jsx';
-import CreateMovie from './pages/Admin/CreateMovie.jsx';
-import AdminMoviesList from './pages/Admin/AdminMoviesList.jsx';
-import UpdateMovie from './pages/Admin/UpdateMovie.jsx';
-import AllReviews from './pages/Admin/AllReviews.jsx';
-import AdminDashboard from './pages/Admin/Dashboard/AdminDashboard.jsx';
+import {
+  AdminRoute,
+  GenreList,
+  CreateMovie,
+  AdminMoviesList,
+  UpdateMovie,
+  AllReviews,
+  AdminDashboard,
+} from './pages/Admin';
+
+// movies
+import { AllMovies, MovieDetails } from './pages/Movies';
 
 import Home from './pages/Home.jsx';
-import ErrorDisplay from './components/ErrorDisplay.jsx';
-import AllMovies from './pages/Movies/AllMovies.jsx';
-import MovieDetails from './pages/Movies/MovieDetails.jsx';
+import { ErrorDisplay } from './components';
 
 const appRouter = createBrowserRouter([
   {

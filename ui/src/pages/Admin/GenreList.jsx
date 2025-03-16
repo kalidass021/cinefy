@@ -6,8 +6,7 @@ import {
   useDeleteGenreMutation,
   useFetchGenresQuery,
 } from '../../redux/api/genreApiSlice';
-import GenreForm from '../../components/GenreForm';
-import Modal from '../../components/Modal';
+import { GenreForm, Modal } from '../../components';
 
 const GenreList = () => {
   const { data: genres, refetch } = useFetchGenresQuery();
