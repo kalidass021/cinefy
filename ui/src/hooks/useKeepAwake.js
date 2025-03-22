@@ -14,12 +14,12 @@ const useKeepAwake = (API_URL, intervalMinutes = 14) => {
       }
 
       // schedule the next ping after the previous request completes
-      timeoutId = setTimeout(pingBackend, intervalMinutes * 60 * 1000); // 14 mins
+      timeoutId = setInterval(pingBackend, intervalMinutes * 60 * 1000); // 14 mins
     };
 
     pingBackend(); // initial ping
 
-    return () => clearTimeout(timeoutId); // cleanup when component unmounts
+    return () => clearInterval(timeoutId); // cleanup when component unmounts
   }, [API_URL, intervalMinutes]);
 };
 
