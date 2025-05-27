@@ -33,20 +33,20 @@ router.get('/top-rated', getTopRatedMovies);
 router.get('/random', getRandomMovies);
 
 // restricted routes
-router.post('/:id/review', authenticate, checkId, addMovieReview);
+// apply authenticate middleware to all below routes
+router.use(authenticate);
+router.post('/:id/review', checkId, addMovieReview);
 
 // admin routes
-router.post('/', authenticate, authorizeAdmin, createMovie);
-router.put(`/:id${objectIdPattern}`, authenticate, authorizeAdmin, updateMovie);
+router.post('/', authorizeAdmin, createMovie);
+router.put(`/:id${objectIdPattern}`, authorizeAdmin, updateMovie);
 router.delete(
   `/:id${objectIdPattern}`,
-  authenticate,
   authorizeAdmin,
   deleteMovie
 );
 router.delete(
   `/:id${objectIdPattern}/review`,
-  authenticate,
   authorizeAdmin,
   deleteReview
 );
