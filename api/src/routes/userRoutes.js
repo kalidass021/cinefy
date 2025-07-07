@@ -10,10 +10,13 @@ import { authenticate, authorizeAdmin } from '../middlewares';
 
 const router = Router();
 
-router.get('/', authenticate, authorizeAdmin, getAllUsers);
+// apply authenticated middleware to all below routes
+router.use(authenticate);
+
+router.get('/', authorizeAdmin, getAllUsers);
 router
   .route('/profile')
-  .get(authenticate, getCurrentUserProfile)
-  .put(authenticate, updateCurrentUserProfile);
+  .get(getCurrentUserProfile)
+  .put(updateCurrentUserProfile);
 
 export default router;
