@@ -38,16 +38,16 @@ router.use(authenticate);
 router.post('/:id/review', checkId, addMovieReview);
 
 // admin routes
-router.post('/', authorizeAdmin, createMovie);
-router.put(`/:id${objectIdPattern}`, authorizeAdmin, updateMovie);
+// apply authorizeAdmin middleware to all below routes
+router.use(authorizeAdmin);
+router.post('/', createMovie);
+router.put(`/:id${objectIdPattern}`, updateMovie);
 router.delete(
   `/:id${objectIdPattern}`,
-  authorizeAdmin,
   deleteMovie
 );
 router.delete(
   `/:id${objectIdPattern}/review`,
-  authorizeAdmin,
   deleteReview
 );
 
