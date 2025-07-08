@@ -1,19 +1,19 @@
 import {Router} from 'express';
 // controllers
-import { createGenre, updateGenre, removeGenre, fetchGenres, readGenre } from '../controllers/genreController';
+import * as genreController from '../controllers/genreController';
 
 // middlewares
 import { authenticate, authorizeAdmin } from '../middlewares';
 
 const router = Router();
 
-router.get('/genres', fetchGenres);
-router.get('/:id', readGenre);
+router.get('/genres', genreController.fetchGenres);
+router.get('/:id', genreController.readGenre);
 // apply authenticated and authorizeAmin middlewares for below routes
 router.use(authenticate, authorizeAdmin);
 
-router.post('/', createGenre);
-router.put('/:id', updateGenre);
-router.delete('/:id', removeGenre);
+router.post('/', genreController.createGenre);
+router.put('/:id', genreController.updateGenre);
+router.delete('/:id', genreController.removeGenre);
 
 export default router;

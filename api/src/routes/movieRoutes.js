@@ -1,17 +1,6 @@
 import { Router } from 'express';
 // controllers
-import {
-  createMovie,
-  getAllMovies,
-  getSpecificMovie,
-  updateMovie,
-  addMovieReview,
-  deleteMovie,
-  deleteReview,
-  getNewMovies,
-  getTopRatedMovies,
-  getRandomMovies,
-} from '../controllers/movieController';
+import * as movieController from '../controllers/movieController';
 // middlewares
 import { authenticate, authorizeAdmin } from '../middlewares';
 import { checkId } from '../middlewares';
@@ -26,29 +15,29 @@ const objectIdPattern = '([0-9a-fA-F]{24})';
 // but that's not a potential fix
 
 // public routes
-router.get('/', getAllMovies);
-router.get(`/:id${objectIdPattern}`, getSpecificMovie);
-router.get('/new', getNewMovies);
-router.get('/top-rated', getTopRatedMovies);
-router.get('/random', getRandomMovies);
+router.get('/', movieController.getAllMovies);
+router.get(`/:id${objectIdPattern}`, movieController.getSpecificMovie);
+router.get('/new', movieController.getNewMovies);
+router.get('/top-rated', movieController.getTopRatedMovies);
+router.get('/random', movieController.getRandomMovies);
 
 // restricted routes
 // apply authenticate middleware to all below routes
 router.use(authenticate);
-router.post('/:id/review', checkId, addMovieReview);
+router.post('/:id/review', checkId, movieController.addMovieReview);
 
 // admin routes
 // apply authorizeAdmin middleware to all below routes
 router.use(authorizeAdmin);
-router.post('/', createMovie);
-router.put(`/:id${objectIdPattern}`, updateMovie);
+router.post('/', movieController.createMovie);
+router.put(`/:id${objectIdPattern}`, movieController.updateMovie);
 router.delete(
   `/:id${objectIdPattern}`,
-  deleteMovie
+  movieController.deleteMovie
 );
 router.delete(
   `/:id${objectIdPattern}/review`,
-  deleteReview
+  movieController.deleteReview
 );
 
 export default router;

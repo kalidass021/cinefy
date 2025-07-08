@@ -1,10 +1,6 @@
 import { Router } from 'express';
 // controllers
-import {
-  getAllUsers,
-  getCurrentUserProfile,
-  updateCurrentUserProfile,
-} from '../controllers/userController';
+import * as userController from '../controllers/userController';
 // middlewares
 import { authenticate, authorizeAdmin } from '../middlewares';
 
@@ -13,10 +9,10 @@ const router = Router();
 // apply authenticated middleware to all below routes
 router.use(authenticate);
 
-router.get('/', authorizeAdmin, getAllUsers);
+router.get('/', authorizeAdmin, userController.getAllUsers);
 router
   .route('/profile')
-  .get(getCurrentUserProfile)
-  .put(updateCurrentUserProfile);
+  .get(userController.getCurrentUserProfile)
+  .put(userController.updateCurrentUserProfile);
 
 export default router;
