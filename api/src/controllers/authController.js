@@ -92,7 +92,7 @@ export const signin = async (req, res, next) => {
 
 export const signoutCurrentUser = async (req, res, next) => {
   try {
-    res.cookie('jwt', '', {
+    res.cookie('jwt', null, {
       httpOnly: true,
       expires: new Date(0),
     });
