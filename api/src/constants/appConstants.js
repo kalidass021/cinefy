@@ -14,3 +14,17 @@ export const STATUS_CODES = {
   ServiceUnavailable: 503,
   HTTPVersionNotSupported: 505,
 };
+
+export const ROUTES = {
+  AUTH: 'api/v1/auth',
+  USERS: 'api/v1/users',
+  GENRE: 'api/v1/genre',
+  MOVIES: 'api/v1/movies',
+  UPLOAD: 'api/v1/upload',
+  STATIC_UPLOADS: '/uploads',
+  AUTH_ENDPOINTS: {
+    SIGNUP: '/signup',
+    SIGNIN: '/signin',
+    SIGNOUT: '/signout',
+  }
+}

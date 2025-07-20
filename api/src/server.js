@@ -13,6 +13,7 @@ import {
   movieRoutes,
   uploadRoutes,
 } from './routes';
+import { ROUTES } from './constants/appConstants';
 
 //configurations
 const app = express();
@@ -27,11 +28,11 @@ app.use(cookieParser());
 app.get('/', apiStatus);
 
 // Routes
-app.use('/api/v1/auth', authRoutes);
-app.use('/api/v1/users', userRoutes);
-app.use('/api/v1/genre', genreRoutes);
-app.use('/api/v1/movies', movieRoutes);
-app.use('/api/v1/upload', uploadRoutes);
+app.use(ROUTES.AUTH, authRoutes);
+app.use(ROUTES.USERS, userRoutes);
+app.use(ROUTES.GENRE, genreRoutes);
+app.use(ROUTES.MOVIES, movieRoutes);
+app.use(ROUTES.UPLOAD, uploadRoutes);
 
 const rootDir = path.resolve();
 // configure express to serve static files from the  uploads directory
