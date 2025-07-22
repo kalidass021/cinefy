@@ -1,4 +1,5 @@
 const OBJECT_ID_PATTERN = '([0-9a-fA-F]{24})'; // mongo db object id regex pattern
+// mongo db object id regex pattern will ensure /:id routes only executed only for objectIds not for other strings
 
 export const STATUS_CODES = {
   OK: 200,
