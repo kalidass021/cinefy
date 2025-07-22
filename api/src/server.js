@@ -39,7 +39,7 @@ const rootDir = path.resolve();
 // this code is only for serving images
 // without this, the image upload functionality will still work,
 // but we won't be able to access the uploaded images via URLs
-app.use('/uploads', express.static(path.join(rootDir + '/uploads')));
+app.use(ROUTES.STATIC_UPLOADS, express.static(path.join(rootDir + '/uploads')));
 
 app.use(notFound); // handle undefined routes
 app.use(errorHandler); // handle the errors
