@@ -22,9 +22,18 @@ export const ROUTES = {
   MOVIES: '/api/v1/movies',
   UPLOAD: '/api/v1/upload',
   STATIC_UPLOADS: '/uploads',
-  AUTH_ENDPOINTS: {
-    SIGNUP: '/signup',
-    SIGNIN: '/signin',
-    SIGNOUT: '/signout',
-  }
-}
+};
+
+export const AUTH_ENDPOINTS = {
+  SIGNUP: '/signup',
+  SIGNIN: '/signin',
+  SIGNOUT: '/signout',
+};
+
+export const GENRE_ENDPOINTS = {
+  FETCH_GENRES: '/genres',
+  READ_GENRE: `:id`,
+  CREATE_GENRE: '/',
+  UPDATE_GENRE: `:id`,
+  REMOVE_GENRE: `:id`,
+};

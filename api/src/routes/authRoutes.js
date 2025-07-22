@@ -1,12 +1,12 @@
 import { Router } from 'express';
-import {ROUTES} from '../constants/appConstants';
+import { AUTH_ENDPOINTS } from '../constants/appConstants';
 // controllers
 import * as authController from '../controllers/authController';
 
 const router = Router();
 
-router.post(ROUTES.AUTH_ENDPOINTS.SIGNUP, authController.signup);
-router.post(ROUTES.AUTH_ENDPOINTS.SIGNIN, authController.signin);
-router.post(ROUTES.AUTH_ENDPOINTS.SIGNOUT, authController.signoutCurrentUser);
+router.post(AUTH_ENDPOINTS.SIGNUP, authController.signup);
+router.post(AUTH_ENDPOINTS.SIGNIN, authController.signin);
+router.post(AUTH_ENDPOINTS.SIGNOUT, authController.signoutCurrentUser);
 
 export default router;
