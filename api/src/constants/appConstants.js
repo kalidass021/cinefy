@@ -53,3 +53,7 @@ export const MOVIE_ENDPOINTS = {
   DELETE_MOVIE: `/:id${OBJECT_ID_PATTERN}`,
   DELETE_REVIEW: `/:id${OBJECT_ID_PATTERN}/review`
 }
+
+export const UPLOAD_ENDPOINTS = {
+  UPLOAD_IMAGE: '/',
+}
