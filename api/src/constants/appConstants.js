@@ -57,3 +57,8 @@ export const MOVIE_ENDPOINTS = {
 export const UPLOAD_ENDPOINTS = {
   UPLOAD_IMAGE: '/',
 }
+
+export const USER_ENDPOINTS = {
+  GET_ALL_USERS: '/',
+  CURRENT_USER_PROFILE: '/profile',
+}
