@@ -1,3 +1,5 @@
+const OBJECT_ID_PATTERN = '([0-9a-fA-F]{24})'; // mongo db object id regex pattern
+
 export const STATUS_CODES = {
   OK: 200,
   Created: 201,
@@ -37,3 +39,16 @@ export const GENRE_ENDPOINTS = {
   UPDATE_GENRE: `:id`,
   REMOVE_GENRE: `:id`,
 };
+
+export const MOVIE_ENDPOINTS = {
+  GET_ALL_MOVIES: '/',
+  GET_SPECIFIC_MOVIE: `/:id${OBJECT_ID_PATTERN}`,
+  GET_NEW_MOVIES: '/new',
+  GET_TOP_RATED_MOVIES: '/top-rated',
+  GET_RANDOM_MOVIES: '/random',
+  ADD_MOVIE_REVIEW: `/:id/review`,
+  CREATE_MOVIE: '/',
+  UPDATE_MOVIE: `/:id${OBJECT_ID_PATTERN}`,
+  DELETE_MOVIE: `/:id${OBJECT_ID_PATTERN}`,
+  DELETE_REVIEW: `/:id${OBJECT_ID_PATTERN}/review`
+}
