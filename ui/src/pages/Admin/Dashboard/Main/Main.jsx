@@ -6,7 +6,7 @@ import {
   useGetAllMoviesQuery,
   useGetTopRatedMoviesQuery,
 } from '../../../../redux/api/movieApiSlice';
-import { BASE_URL } from '../../../../config/constants';
+import { BASE_URL } from '../../../../constants';
 
 const Main = () => {
   const {

@@ -1,0 +1,10 @@
+import {
+  BASE_URL,
+  AUTH_URL,
+  USERS_URL,
+  GENRE_URL,
+  MOVIE_URL,
+  UPLOAD_URL,
+} from './appConstants';
+
+export { BASE_URL, AUTH_URL, USERS_URL, GENRE_URL, MOVIE_URL, UPLOAD_URL };

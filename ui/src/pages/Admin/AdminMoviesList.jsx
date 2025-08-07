@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useGetAllMoviesQuery } from '../../redux/api/movieApiSlice';
-import { BASE_URL } from '../../config/constants';
+import { BASE_URL } from '../../constants';
 
 const AdminMoviesList = () => {
   const { data: movies } = useGetAllMoviesQuery();
