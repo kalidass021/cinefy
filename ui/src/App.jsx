@@ -3,6 +3,7 @@ import { Toaster } from 'react-hot-toast';
 import { NavigationDock } from './components';
 // import useKeepAwake from './hooks/useKeepAwake';
 // import { BASE_URL } from './config/constants';
+import { Analytics } from '@vercel/analytics/react'; // for tracking the user interactions
 
 const App = () => {
   // useKeepAwake(BASE_URL);
@@ -13,6 +14,7 @@ const App = () => {
       <main className='py-3'>
         <Outlet />
       </main>
+      <Analytics />
     </>
   );
 };
