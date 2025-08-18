@@ -2,7 +2,7 @@ import express from 'express';
 import path from 'path';
 import cookieParser from 'cookie-parser';
 // files
-import { cors } from './config';
+import { cors, rateLimiter } from './config';
 import { apiStatus } from './utils';
 import { notFound, errorHandler } from './middlewares';
 // routes
@@ -19,6 +19,7 @@ import { ROUTES } from './constants/appConstants';
 const app = express();
 
 // middlewares
+app.use(rateLimiter);
 app.use(cors);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
