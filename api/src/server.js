@@ -1,4 +1,5 @@
 import express from 'express';
+import helmet from 'helmet';
 import path from 'path';
 import cookieParser from 'cookie-parser';
 // files
@@ -19,6 +20,7 @@ import { ROUTES } from './constants/appConstants';
 const app = express();
 
 // middlewares
+app.use(helmet());
 app.use(rateLimiter);
 app.use(cors);
 app.use(express.json());
