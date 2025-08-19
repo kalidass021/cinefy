@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { GENRE_ENDPOINTS } from '../constants/appConstants';
+import { GENRE_ENDPOINTS } from '../constants';
 // controllers
 import * as genreController from '../controllers/genreController';
 

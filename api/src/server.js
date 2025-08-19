@@ -14,7 +14,7 @@ import {
   movieRoutes,
   uploadRoutes,
 } from './routes';
-import { ROUTES } from './constants/appConstants';
+import { ROUTES } from './constants';
 
 //configurations
 const app = express();

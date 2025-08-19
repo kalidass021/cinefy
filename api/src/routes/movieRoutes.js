@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { MOVIE_ENDPOINTS } from '../constants/appConstants';
+import { MOVIE_ENDPOINTS } from '../constants';
 // controllers
 import * as movieController from '../controllers/movieController';
 // middlewares

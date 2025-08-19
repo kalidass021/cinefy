@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { UPLOAD_ENDPOINTS } from '../constants/appConstants';
+import { UPLOAD_ENDPOINTS } from '../constants';
 import * as uploadController from '../controllers/uploadController';
 
 const router = Router();

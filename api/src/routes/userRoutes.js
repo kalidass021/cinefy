@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { USER_ENDPOINTS } from '../constants/appConstants';
+import { USER_ENDPOINTS } from '../constants';
 // controllers
 import * as userController from '../controllers/userController';
 // middlewares
