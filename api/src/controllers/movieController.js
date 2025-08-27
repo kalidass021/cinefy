@@ -3,6 +3,7 @@ import { error } from '../utils';
 
 export const createMovie = async (req, res, next) => {
   try {
+    // Todo: add checks before adding  movie to db
     const newMovie = new Movie(req.body);
     const savedMovie = await newMovie.save();
 
