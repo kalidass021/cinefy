@@ -1,7 +1,7 @@
 import express from 'express';
 import helmet from 'helmet';
-import path from 'path';
 import cookieParser from 'cookie-parser';
+import path from 'path';
 // files
 import { cors, rateLimiter } from './config';
 import { apiStatus } from './utils';
